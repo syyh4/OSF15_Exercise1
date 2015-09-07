@@ -9,10 +9,18 @@
 #define MAX_CMD_LEN 25
 
 
-	//TODO FUNCTION COMMENT
+/*
+ * PURPOSE: allocate and zero-initialize arrays.The largest number of arrays is 50
+ *          for each array, allocate array with largest length equals to 25
+ * INPUTS:
+ *  pointer of the name of input strings
+ *  pointer of the pointer of memory arrays
+ * RETURN:
+ *  true if there is no problems during process
+ *  false for other cases
+ **/
 bool parse_user_input (const char* input, Commands_t** cmd) {
-	
-	//TODO ERROR CHECK INCOMING PARAMETERS
+
 
 	char *string = strdup(input);
 	
@@ -36,10 +44,15 @@ bool parse_user_input (const char* input, Commands_t** cmd) {
 	return true;
 }
 
-	//TODO FUNCTION COMMENT
+/*
+ * PURPOSE: free all the memories
+ * INPUTS:
+ *  pointer of the pointer of memory locations
+ * RETURN:
+ *  nothing
+ **/
 void destroy_commands(Commands_t** cmd) {
 
-	//TODO ERROR CHECK INCOMING PARAMETERS
 	
 	for (int i = 0; i < (*cmd)->num_cmds; ++i) {
 		free((*cmd)->cmds[i]);
@@ -48,4 +61,3 @@ void destroy_commands(Commands_t** cmd) {
 	free((*cmd));
 	*cmd = NULL;
 }
-
